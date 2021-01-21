@@ -4,7 +4,8 @@ const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const Post = require('./models/Post');
 const Cafe = require("./models/Cafe");
-const User = require("./models/User")
+const User = require("./models/User");
+const { resourceUsage } = require("process");
 
 //Config
     //Template Engine
@@ -16,7 +17,13 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 //Rotas
-app.get('/form_prod', function(req, res){
+app.get('/', function(req, res){
+    Cafe.findAll().then(function(cafes){
+        res.render('home', {cafes:cafes})
+    })   
+})
+
+app.get('/form_cafe', function(req, res){
     res.render('form_cafe')
 })
 
@@ -27,6 +34,8 @@ app.get('/form_post', function(req, res){
 app.get('/form_user', function(req, res){
     res.render('form_user')
 })
+
+
 
 app.post('/add_post', function(req, res){
     Post.create({
@@ -46,7 +55,7 @@ app.post('/add_cafe', function(req, res){
         descricao: req.body.descricao,
         preco: req.body.preco
     }).then(function(){
-        res.send("Produto enviado com sucesso!")
+        res.redirect("/")
     }).catch(function(erro){
         res.send("Houve um erro ao enviar o produto " + erro)
     })
