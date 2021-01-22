@@ -1,0 +1,13 @@
+<h1>Cafés</h1>
+
+{{#each cafes}}
+
+    <h1>Nome: {{dataValues.nome}}</h1>
+    <p>ID: {{dataValues.id}}</p>
+    <p>Descrição: {{dataValues.descricao}}</p>
+    <p>Preço: {{dataValues.preco}}</p>
+    <p>Cadastrado: {{#formatDate dataValues.createdAt}} {{/formatDate}}</p>
+    <a href="del_cafe/{{dataValues.id}}"><button>Excluir Item</button></a>
+    <hr>
+
+{{/each}}
