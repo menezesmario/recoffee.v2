@@ -27,6 +27,11 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 //Rotas
+
+app.get
+
+
+
 app.get('/cafes', function(req, res){
     Cafe.findAll({order: [['id', 'DESC']]}).then(function(cafes){
         res.render('cafes', {cafes:cafes})
