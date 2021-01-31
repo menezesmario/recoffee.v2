@@ -7,6 +7,9 @@ const Post = require('./models/Post');
 const Cafe = require("./models/Cafe");
 const User = require("./models/User");
 const Acessorios = require("./models/Acessorios");
+
+// app.use(express.json());
+
 //const { resourceUsage } = require("process");
 //const { where } = require("sequelize/types");
 
@@ -28,9 +31,15 @@ app.use(bodyParser.json())
 
 //Rotas
 
-app.get
+// app.get("/", (req, res) => {
+//     Cafe.findAll({order: [['id', 'DESC']]}).then(function(cafes){
+//         res.json('cafes', {cafes:cafes})
+//     })   
+// });
 
-
+app.get('/', function(req, res){
+    res.render('form_cafe')
+})
 
 app.get('/cafes', function(req, res){
     Cafe.findAll({order: [['id', 'DESC']]}).then(function(cafes){
