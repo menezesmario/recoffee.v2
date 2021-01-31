@@ -32,14 +32,20 @@ app.use(bodyParser.json())
 //Rotas
 
 // app.get("/", (req, res) => {
-//     Cafe.findAll({order: [['id', 'DESC']]}).then(function(cafes){
-//         res.json('cafes', {cafes:cafes})
-//     })   
+//     connect.query("SELECT * FROM cafes", (error, result) => {
+//         res.json(result)
+//     });
 // });
 
 // const connect = require("./database/connect")
 
 app.get('/', function(req, res){
+    Cafe.findAll().then(function(cafes){
+        res.json({cafes:cafes})
+    })   
+})
+
+app.get('/add_product', function(req, res){
     res.render('form_cafe')
 })
 
