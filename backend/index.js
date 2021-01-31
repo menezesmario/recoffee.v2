@@ -37,6 +37,8 @@ app.use(bodyParser.json())
 //     })   
 // });
 
+// const connect = require("./database/connect")
+
 app.get('/', function(req, res){
     res.render('form_cafe')
 })
