@@ -20,8 +20,8 @@ const Products = () => {
                     </div>                       
 
                     <div className="add-to-cart">add to cart</div>
-                    {product.status === 'hot' ? <div className="hot">Hot</div>: ''}
-                    {product.status === 'new' ? <div className="new">New</div>: ''}
+                    {product.status === 'hot' ? <div className="hot">Oferta</div>: ''}
+                    {product.status === 'new' ? <div className="new">Novo</div>: ''}
                 </div>
             ))}
         </div>
