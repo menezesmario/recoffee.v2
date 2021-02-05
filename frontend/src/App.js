@@ -2,7 +2,8 @@ import React from 'react'
 import './App.css'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom" 
 import Navbar from "./components/Navbar";
-import ProductsContextProvider from "./Global/ProductsContext"
+import ProductsContextProvider from "./Global/ProductsContext";
+import CartContextProvicer from "./Global/CartContext";
 import Products from "./components/Products";
 import Cart from './components/Cart';
 import NotFound from "./components/NotFound";
@@ -11,6 +12,7 @@ function App() {
   return (
     <div>
       <ProductsContextProvider>
+        <CartContextProvicer>
       <Router>
       <Navbar />
         <Switch>
@@ -19,6 +21,7 @@ function App() {
           <Route component={NotFound} />
         </Switch>
       </Router>
+      </CartContextProvicer>
       </ProductsContextProvider>
 
     </div>
