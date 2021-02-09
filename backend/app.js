@@ -1,3 +1,16 @@
+//MONGODB
+// const express = require('express')
+// const app = express()
+// const mongoose = require('mongoose')
+
+// //conexão db Mongo
+// require('./src/db/connect')
+
+
+// app.listen(3333)
+
+//MYSQL
+
 const express = require("express");
 const app = express();
 
